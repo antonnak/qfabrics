@@ -3,10 +3,10 @@
 :root {
   /* ===== DARK MODE (Site-wide) ===== */
 
-  /* Backgrounds */
-  --background: #1a1a1a;
-  --background-elevated: #222222;
-  --background-subtle: #141414;
+  /* Backgrounds - Deep black from Qfabricsmesh */
+  --background: #000000;
+  --background-elevated: #0a0a0a;
+  --background-subtle: #050505;
 
   /* Foreground / Text */
   --foreground: #fafafa;
@@ -69,7 +69,7 @@ html {
 }
 
 body {
-  background-color: #1a1a1a;
+  background-color: #000000;
   color: #fafafa;
   font-family: var(--font-inter), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -94,7 +94,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {
