@@ -1,26 +1,107 @@
-@import "tailwindcss";
+@import "tailwindcss" source("../**/*.tsx");
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ===== DARK MODE (Site-wide) ===== */
+
+  /* Backgrounds */
+  --background: #1a1a1a;
+  --background-elevated: #222222;
+  --background-subtle: #141414;
+
+  /* Foreground / Text */
+  --foreground: #fafafa;
+  --foreground-muted: #a1a1aa;
+  --foreground-subtle: #6b7280;
+
+  /* Interactive */
+  --primary: #fafafa;
+  --primary-hover: #ffffff;
+  --secondary: #404040;
+  --secondary-hover: #525252;
+
+  /* Borders */
+  --border: #2a2a2a;
+  --border-hover: #404040;
+
+  /* Accents */
+  --accent-glow: rgba(255, 255, 255, 0.05);
+  --accent-highlight: rgba(255, 255, 255, 0.1);
+
+  /* Status */
+  --destructive: #b91c1c;
+  --success: #16a34a;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 40px rgba(255, 255, 255, 0.05);
+
+  /* Prism Visual */
+  --prism-green: #00ff88;
+  --prism-red: #ff4444;
+  --prism-orange: #ff8800;
+  --prism-face-dark: #0a0a0a;
+  --prism-face-mid: #1a1a1a;
+  --prism-face-light: #2a2a2a;
+  --prism-edge: rgba(255, 255, 255, 0.7);
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
+  --color-background-elevated: var(--background-elevated);
+  --color-background-subtle: var(--background-subtle);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-foreground-subtle: var(--foreground-subtle);
+  --color-border: var(--border);
+  --color-border-hover: var(--border-hover);
+  --color-accent-highlight: var(--accent-highlight);
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #1a1a1a;
+  color: #fafafa;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection */
+::selection {
+  background: rgba(250, 250, 250, 0.2);
+  color: #fafafa;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid #fafafa;
+  outline-offset: 2px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #404040;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #525252;
 }
