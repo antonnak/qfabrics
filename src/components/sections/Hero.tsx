@@ -25,8 +25,8 @@ export function Hero() {
         }}
       />
 
-      {/* Content - on top of mesh */}
-      <div className="relative z-20 px-6 sm:px-12 py-20 sm:py-28 text-center max-w-4xl mx-auto">
+      {/* Content - on top of mesh, shifted up */}
+      <div className="relative z-20 px-6 sm:px-12 pb-48 sm:pb-64 text-center max-w-4xl mx-auto">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground leading-[1.1] tracking-tight">
           AI agents that actually ship.
         </h1>

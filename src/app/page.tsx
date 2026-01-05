@@ -1,5 +1,5 @@
 import { Hero } from '@/components/sections/Hero';
-import { ClientLogos } from '@/components/sections/ClientLogos';
+import { TechStack } from '@/components/sections/ClientLogos';
 import { ProblemSolution } from '@/components/sections/ProblemSolution';
 import { Pillars } from '@/components/sections/Pillars';
 import { FabricsGrid } from '@/components/sections/FabricsGrid';
@@ -11,7 +11,7 @@ export default function HomePage() {
   return (
     <main>
       <Hero />
-      <ClientLogos />
+      <TechStack />
       <ProblemSolution />
       <Pillars />
       <FabricsGrid />

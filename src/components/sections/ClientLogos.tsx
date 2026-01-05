@@ -1,27 +1,72 @@
-const clientTypes = [
-  { label: 'Middle Market PE', aum: '$2-10B AUM' },
-  { label: 'Growth Equity', aum: '$1-5B AUM' },
-  { label: 'Family Offices', aum: 'Multi-generational' },
-  { label: 'Portfolio Companies', aum: 'PE-backed' },
+"use client";
+
+const techGroups = [
+  {
+    label: 'LLMs',
+    items: [
+      { name: 'OpenAI', logo: '/logos/openai.svg' },
+      { name: 'Claude', logo: '/logos/anthropic.svg' },
+      { name: 'Gemini', logo: '/logos/gemini.svg' },
+      { name: 'Grok', logo: '/logos/grok.svg' },
+    ],
+  },
+  {
+    label: 'Frameworks',
+    items: [
+      { name: 'LangChain', logo: '/logos/langchain.svg' },
+      { name: 'CrewAI', logo: '/logos/crewai.svg' },
+      { name: 'LlamaIndex', logo: '/logos/llamaindex.svg' },
+    ],
+  },
+  {
+    label: 'Cloud',
+    items: [
+      { name: 'AWS', logo: '/logos/aws.svg' },
+      { name: 'Azure', logo: '/logos/azure.svg' },
+      { name: 'GCP', logo: '/logos/gcp.svg' },
+    ],
+  },
+  {
+    label: 'Vector DB',
+    items: [
+      { name: 'Pinecone', logo: '/logos/pinecone.svg' },
+      { name: 'ChromaDB', logo: '/logos/chroma.svg' },
+    ],
+  },
 ];
 
-export function ClientLogos() {
+export function TechStack() {
   return (
-    <section className="bg-background border-t border-border py-12">
+    <section className="bg-background border-t border-border py-16">
       <div className="max-w-6xl mx-auto px-6">
-        <p className="text-center text-foreground-subtle text-xs font-medium uppercase tracking-widest mb-8">
-          Trusted by leading private equity firms
+        <p className="text-center text-foreground-subtle text-xs font-medium uppercase tracking-widest mb-12">
+          Built with industry-leading technology
         </p>
 
-        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
-          {clientTypes.map((client) => (
-            <div
-              key={client.label}
-              className="flex items-center gap-2 px-4 py-2 rounded-full border border-border/50 bg-background-elevated/30"
-            >
-              <span className="text-foreground-muted text-sm font-medium">{client.label}</span>
-              <span className="text-foreground-subtle text-xs">·</span>
-              <span className="text-foreground-subtle text-xs">{client.aum}</span>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          {techGroups.map((group) => (
+            <div key={group.label} className="text-center">
+              <p className="text-foreground-subtle text-xs font-medium uppercase tracking-wider mb-4">
+                {group.label}
+              </p>
+              <div className="flex flex-col items-center gap-3">
+                {group.items.map((item) => (
+                  <div
+                    key={item.name}
+                    className="flex items-center gap-2 text-foreground-muted hover:text-foreground transition-colors"
+                  >
+                    <img
+                      src={item.logo}
+                      alt={item.name}
+                      className="w-5 h-5 opacity-70"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                      }}
+                    />
+                    <span className="text-sm font-medium">{item.name}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
         </div>
@@ -29,3 +74,6 @@ export function ClientLogos() {
     </section>
   );
 }
+
+// Keep old export for backwards compatibility
+export const ClientLogos = TechStack;

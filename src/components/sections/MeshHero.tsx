@@ -54,7 +54,7 @@ export function MeshHero() {
     // Project 3D point to 2D with landscape perspective
     const project = (x: number, y: number, z: number) => {
       const centerX = canvas.offsetWidth / 2;
-      const centerY = canvas.offsetHeight * 0.45;
+      const centerY = canvas.offsetHeight * 0.62;
 
       // Rotate for flowing wave view
       const rotX = -0.5;
