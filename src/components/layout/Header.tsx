@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import { Logo } from '@/components/ui/Logo';
 
 const solutions = [
   { name: 'TalentFabrics', description: 'Executive Intelligence', href: '/solutions/talent-fabrics' },
@@ -35,8 +34,8 @@ export function Header() {
       <div className="max-w-6xl mx-auto px-6">
         <nav className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <Logo size="sm" />
+          <Link href="/" className="text-foreground font-semibold text-lg">
+            QuantumFabrics
           </Link>
 
           {/* Desktop Navigation */}
