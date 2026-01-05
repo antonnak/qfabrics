@@ -1,16 +1,68 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = 'https://quantumfabrics.ai';
+
   return [
-    { url: 'https://quantumfabrics.ai', lastModified: new Date() },
-    { url: 'https://quantumfabrics.ai/solutions', lastModified: new Date() },
-    { url: 'https://quantumfabrics.ai/solutions/talent-fabrics', lastModified: new Date() },
-    { url: 'https://quantumfabrics.ai/solutions/investment-fabrics', lastModified: new Date() },
-    { url: 'https://quantumfabrics.ai/solutions/operations-fabrics', lastModified: new Date() },
-    { url: 'https://quantumfabrics.ai/solutions/customer-fabrics', lastModified: new Date() },
-    { url: 'https://quantumfabrics.ai/how-we-work', lastModified: new Date() },
-    { url: 'https://quantumfabrics.ai/about', lastModified: new Date() },
-    { url: 'https://quantumfabrics.ai/blog', lastModified: new Date() },
-    { url: 'https://quantumfabrics.ai/contact', lastModified: new Date() },
+    {
+      url: baseUrl,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 1,
+    },
+    {
+      url: `${baseUrl}/solutions`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/solutions/talent-fabrics`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/solutions/investment-fabrics`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/solutions/operations-fabrics`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/solutions/customer-fabrics`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/how-we-work`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/about`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
   ];
 }
