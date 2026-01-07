@@ -53,7 +53,7 @@ export default function ContactPage() {
   }
 
   return (
-    <main className="pt-24">
+    <main id="main-content" className="pt-24">
       <section className="py-24">
         <div className="max-w-5xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16">
@@ -67,7 +67,7 @@ export default function ContactPage() {
               </p>
 
               {submitStatus === 'success' ? (
-                <div className="bg-green-900/20 border border-green-500/30 rounded-lg p-6">
+                <div role="status" aria-live="polite" className="bg-green-900/20 border border-green-500/30 rounded-lg p-6">
                   <h3 className="text-green-400 font-medium mb-2">Message sent!</h3>
                   <p className="text-foreground-muted mb-6">
                     Thanks for reaching out. Book a time below, or we&apos;ll get back to you within 24 hours.
@@ -85,7 +85,7 @@ export default function ContactPage() {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {submitStatus === 'error' && (
-                    <div className="bg-red-900/20 border border-red-500/30 rounded-lg p-4">
+                    <div role="alert" className="bg-red-900/20 border border-red-500/30 rounded-lg p-4">
                       <p className="text-red-400 text-sm">{errorMessage}</p>
                     </div>
                   )}
@@ -99,6 +99,7 @@ export default function ContactPage() {
                       id="name"
                       name="name"
                       required
+                      aria-required="true"
                       className="w-full px-4 py-3 bg-background-elevated border border-border rounded-lg text-foreground placeholder-foreground-subtle focus:outline-none focus:border-foreground-muted transition-colors"
                     />
                   </div>
@@ -112,6 +113,7 @@ export default function ContactPage() {
                       id="email"
                       name="email"
                       required
+                      aria-required="true"
                       className="w-full px-4 py-3 bg-background-elevated border border-border rounded-lg text-foreground placeholder-foreground-subtle focus:outline-none focus:border-foreground-muted transition-colors"
                     />
                   </div>

@@ -78,7 +78,7 @@ const faqs = [
 
 export default function HowWeWorkPage() {
   return (
-    <main className="pt-24">
+    <main id="main-content" className="pt-24">
       {/* Hero */}
       <section className="py-24">
         <div className="max-w-3xl mx-auto px-6 text-center">

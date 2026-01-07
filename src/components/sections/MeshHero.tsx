@@ -213,7 +213,11 @@ export function MeshHero() {
         ref={canvasRef}
         className="absolute inset-0 w-full h-full"
         style={{ mixBlendMode: 'screen' }}
-      />
+        aria-label="Animated 3D mesh background visualization"
+        role="img"
+      >
+        Interactive 3D mesh animation with flowing wave patterns
+      </canvas>
     </div>
   );
 }

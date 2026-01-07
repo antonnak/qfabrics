@@ -40,7 +40,7 @@ const fabrics = [
 
 export default function SolutionsPage() {
   return (
-    <main className="pt-24">
+    <main id="main-content" className="pt-24">
       {/* Hero */}
       <section className="py-24">
         <div className="max-w-3xl mx-auto px-6 text-center">
@@ -61,7 +61,8 @@ export default function SolutionsPage() {
               <Link
                 key={fabric.name}
                 href={fabric.href}
-                className="group relative bg-background border border-border rounded-lg p-8 transition-all duration-200 hover:border-border-hover hover:-translate-y-0.5"
+                aria-label={`Learn more about ${fabric.name}: ${fabric.domain}`}
+                className="group relative bg-background border border-border rounded-lg p-8 transition-all duration-200 hover:border-border-hover hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border-hover to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
