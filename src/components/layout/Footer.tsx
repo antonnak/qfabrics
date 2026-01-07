@@ -1,10 +1,10 @@
 import Link from 'next/link';
 
 const solutions = [
-  { name: 'TalentFabrics', href: '/solutions/talent-fabrics' },
   { name: 'InvestmentFabrics', href: '/solutions/investment-fabrics' },
   { name: 'OperationsFabrics', href: '/solutions/operations-fabrics' },
-  { name: 'CustomerFabrics', href: '/solutions/customer-fabrics' },
+  { name: 'TalentFabrics', href: '/solutions/talent-fabrics' },
+  { name: 'SalesFabrics', href: '/solutions/sales-fabrics' },
 ];
 
 const company = [
@@ -16,7 +16,7 @@ const company = [
 
 const connect = [
   { name: 'LinkedIn', href: 'https://linkedin.com/company/quantumfabrics' },
-  { name: 'Email', href: 'mailto:anton@quantumfabrics.ai' },
+  { name: 'X', href: 'https://x.com/quantumfabrics' },
 ];
 
 export function Footer() {
@@ -86,7 +86,7 @@ export function Footer() {
         {/* Bottom */}
         <div className="mt-16 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-foreground-subtle text-xs">
-            © 2025 Talk2Insights AI LLC d/b/a QuantumFabrics
+            © 2025 QuantumFabrics
           </p>
           <div className="flex gap-6">
             <Link href="/privacy" className="text-foreground-subtle hover:text-foreground-muted text-xs transition-colors">

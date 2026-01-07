@@ -9,13 +9,6 @@ export const metadata: Metadata = {
 
 const fabrics = [
   {
-    icon: Users,
-    name: 'TalentFabrics',
-    domain: 'Executive Intelligence',
-    description: 'AI agents for talent assessment, executive benchmarking, leadership analytics, and succession planning. Identify at-risk executives 6 months earlier.',
-    href: '/solutions/talent-fabrics',
-  },
-  {
     icon: TrendingUp,
     name: 'InvestmentFabrics',
     domain: 'Investment Research',
@@ -30,11 +23,18 @@ const fabrics = [
     href: '/solutions/operations-fabrics',
   },
   {
+    icon: Users,
+    name: 'TalentFabrics',
+    domain: 'Executive Intelligence',
+    description: 'AI agents for talent assessment, executive benchmarking, leadership analytics, and succession planning. Identify at-risk executives 6 months earlier.',
+    href: '/solutions/talent-fabrics',
+  },
+  {
     icon: Target,
-    name: 'CustomerFabrics',
+    name: 'SalesFabrics',
     domain: 'GTM & Revenue',
     description: 'AI agents for lead enrichment, outreach automation, pipeline intelligence, and customer success. 3x pipeline coverage.',
-    href: '/solutions/customer-fabrics',
+    href: '/solutions/sales-fabrics',
   },
 ];
 

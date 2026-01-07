@@ -3,96 +3,106 @@ import { Button } from '@/components/ui/Button';
 
 export const metadata: Metadata = {
   title: 'About',
-  description: 'QuantumFabrics was founded by Anton, ex-McKinsey Senior Manager, to close the gap between AI strategy and production deployment.',
+  description: 'QuantumFabrics closes the gap between AI strategy and production deployment. Built on 100+ years of combined McKinsey experience and real startup success.',
 };
 
 export default function AboutPage() {
   return (
     <main className="pt-24">
-      {/* Founder Section */}
-      <section className="py-24">
+      {/* Hero */}
+      <section className="py-16">
         <div className="max-w-3xl mx-auto px-6">
-          {/* Founder initials avatar */}
-          <div className="w-20 h-20 rounded-full bg-background-elevated border border-border mb-8 flex items-center justify-center">
-            <span className="text-2xl font-semibold text-foreground-muted">AK</span>
-          </div>
-
-          <h1 className="text-3xl sm:text-4xl font-semibold text-foreground leading-tight mb-8">
-            Built by someone who&apos;s been on both sides
+          <span className="text-foreground-subtle text-xs font-semibold uppercase tracking-widest">
+            About
+          </span>
+          <h1 className="mt-4 text-4xl sm:text-5xl font-semibold text-foreground leading-tight">
+            The gap we close.
           </h1>
-
-          <div className="space-y-6 text-foreground-muted leading-relaxed">
+          <div className="mt-8 space-y-6 text-foreground-muted leading-relaxed text-lg">
             <p>
-              After nearly a decade at McKinsey helping Fortune 500 companies transform their operations, I noticed a pattern: AI projects kept dying in the pilot phase.
+              Most AI projects fail for the same reasons consulting exists to solve: unclear goals, undefined success metrics, and generic solutions that don&apos;t fit how the business actually works.
             </p>
             <p>
-              Strategy consultants could design brilliant solutions but couldn&apos;t build them. Dev shops could build anything but didn&apos;t understand the business context. The gap between &quot;great idea&quot; and &quot;working system&quot; was where projects went to die.
+              Then companies buy off-the-shelf AI and wonder why it doesn&apos;t move the needle. It&apos;s because their competitors bought the same tool.
             </p>
-            <p>
-              QuantumFabrics exists to close that gap.
+            <p className="text-foreground">
+              We build AI that becomes your competitive advantage—not another commodity.
             </p>
-            <p>
-              I combine the strategic rigor of top-tier consulting with hands-on engineering capability. I don&apos;t just tell you what to build—I build it, deploy it, and make sure it works.
-            </p>
-            <p>
-              Every engagement is led by me personally. No junior staff bait-and-switch. No handoff to offshore teams. You get senior attention from start to finish.
-            </p>
-          </div>
-
-          <div className="mt-8 text-foreground">
-            <p className="font-medium">— Anton</p>
-            <p className="text-foreground-subtle text-sm">Founder, QuantumFabrics</p>
           </div>
         </div>
       </section>
 
-      {/* Credentials */}
+      {/* Background */}
+      <section className="py-24">
+        <div className="max-w-3xl mx-auto px-6">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-foreground mb-8">
+            Built on real experience.
+          </h2>
+
+          <div className="space-y-6 text-foreground-muted leading-relaxed">
+            <p>
+              I spent 10 years at McKinsey watching technical projects fail. Not because the technology was wrong, but because delivery was slow, expensive, and disconnected from the business problem.
+            </p>
+            <p>
+              Before QuantumFabrics, I co-founded Kevin AI—a real estate technology platform I built from the ground up. Real product. Real customers, including some of the top 100 RE agents in the US. Real revenue. Recognized by the National Association of Realtors as Innovator of the Year.
+            </p>
+            <p>
+              I&apos;ve built AI that ships. Now I do it for enterprises.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Team Background */}
       <section className="bg-background-subtle py-24">
         <div className="max-w-3xl mx-auto px-6">
           <h2 className="text-2xl font-semibold text-foreground mb-12">
-            Background
+            Team Background
           </h2>
 
-          <div className="grid sm:grid-cols-2 gap-8">
-            <div>
+          <div className="grid sm:grid-cols-2 gap-6">
+            <div className="bg-background border border-border rounded-lg p-5">
               <h3 className="text-foreground font-medium mb-2">McKinsey & Company</h3>
-              <p className="text-foreground-muted text-sm">Senior Manager, 10 years</p>
-              <p className="text-foreground-subtle text-sm">Operations and technology transformations</p>
+              <p className="text-foreground-muted text-sm">100+ years of combined experience</p>
+              <p className="text-foreground-subtle text-sm">Technology transformations, QuantumBlack</p>
             </div>
-            <div>
+            <div className="bg-background border border-border rounded-lg p-5">
               <h3 className="text-foreground font-medium mb-2">Full-Stack Engineering</h3>
               <p className="text-foreground-muted text-sm">AI/ML systems, cloud architecture</p>
               <p className="text-foreground-subtle text-sm">Production deployments at scale</p>
             </div>
-            <div>
+            <div className="bg-background border border-border rounded-lg p-5">
               <h3 className="text-foreground font-medium mb-2">Domain Expertise</h3>
-              <p className="text-foreground-muted text-sm">Talent, Investment, Operations, GTM</p>
-              <p className="text-foreground-subtle text-sm">500+ executive assessments in database</p>
+              <p className="text-foreground-muted text-sm">Investment, Operations, Talent, Sales</p>
+              <p className="text-foreground-subtle text-sm">Proven playbooks that accelerate delivery</p>
+            </div>
+            <div className="bg-background border border-border rounded-lg p-5">
+              <h3 className="text-foreground font-medium mb-2">Startup DNA</h3>
+              <p className="text-foreground-muted text-sm">Co-founded Kevin AI</p>
+              <p className="text-foreground-subtle text-sm">NAR Innovator of the Year</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Values */}
+      {/* How We Work */}
       <section className="py-24">
         <div className="max-w-3xl mx-auto px-6">
-          <h2 className="text-2xl font-semibold text-foreground mb-12">
-            How we operate
+          <h2 className="text-2xl sm:text-3xl font-semibold text-foreground mb-8">
+            How we work.
           </h2>
 
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-foreground font-medium mb-2">Ship, don&apos;t slide</h3>
-              <p className="text-foreground-muted">We&apos;re measured on working systems, not deliverable pages.</p>
-            </div>
-            <div>
-              <h3 className="text-foreground font-medium mb-2">Stay hands-on</h3>
-              <p className="text-foreground-muted">The person who designs it builds it. No translation loss.</p>
-            </div>
-            <div>
-              <h3 className="text-foreground font-medium mb-2">Earn trust through results</h3>
-              <p className="text-foreground-muted">We don&apos;t ask for long contracts. We earn the next engagement.</p>
-            </div>
+          <div className="space-y-6 text-foreground-muted leading-relaxed">
+            <p>
+              QuantumFabrics is a senior-led team. I lead every engagement personally—from strategy through deployment. No handoffs. No bait-and-switch.
+            </p>
+            <p>
+              We define the problem before writing code. We build systems that run in your infrastructure. And we don&apos;t leave until it works.
+            </p>
+          </div>
+
+          <div className="mt-8 text-foreground">
+            <p className="font-medium">— Anton, Founder</p>
           </div>
         </div>
       </section>
@@ -101,14 +111,14 @@ export default function AboutPage() {
       <section className="bg-background-subtle py-24">
         <div className="max-w-2xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-semibold text-foreground">
-            Let&apos;s talk
+            Ready to build AI that&apos;s actually yours?
           </h2>
           <p className="mt-4 text-foreground-muted">
-            I&apos;d love to hear about what you&apos;re working on.
+            30-minute call. No pitch deck. Let&apos;s talk about your specific challenges.
           </p>
           <div className="mt-8">
             <Button href="/contact" size="lg">
-              Book a Demo
+              Book a Call
             </Button>
           </div>
         </div>

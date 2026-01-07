@@ -6,10 +6,10 @@ import { ChevronDown, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 
 const solutions = [
-  { name: 'TalentFabrics', description: 'Executive Intelligence', href: '/solutions/talent-fabrics' },
   { name: 'InvestmentFabrics', description: 'Investment Research', href: '/solutions/investment-fabrics' },
   { name: 'OperationsFabrics', description: 'Portfolio Operations', href: '/solutions/operations-fabrics' },
-  { name: 'CustomerFabrics', description: 'GTM & Revenue', href: '/solutions/customer-fabrics' },
+  { name: 'TalentFabrics', description: 'Executive Intelligence', href: '/solutions/talent-fabrics' },
+  { name: 'SalesFabrics', description: 'GTM & Revenue', href: '/solutions/sales-fabrics' },
 ];
 
 export function Header() {

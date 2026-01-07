@@ -28,11 +28,11 @@ export function Hero() {
       {/* Content - on top of mesh, shifted up */}
       <div className="relative z-20 px-6 sm:px-12 pb-48 sm:pb-64 text-center max-w-4xl mx-auto">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground leading-[1.1] tracking-tight">
-          AI agents that actually ship.
+          Enterprise AI that works
         </h1>
 
         <p className="mt-6 text-lg sm:text-xl text-foreground-muted max-w-2xl mx-auto leading-relaxed">
-          We build production AI systems for private equity and enterprise—not pilots, not proofs of concept, but working agents integrated into your operations.
+          We build AI agents that run inside your infrastructure—secure, compliant, and working. Not pilots that never deploy.
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">

@@ -1,21 +1,26 @@
-import { Rocket, Layers, Shield } from 'lucide-react';
+import { Target, Bot, Plug, Brain } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
 
 const pillars = [
   {
-    icon: Rocket,
-    title: 'Production Focus',
-    description: "Every engagement delivers working systems, not research papers. We're measured on deployment, not deliverables.",
+    icon: Target,
+    title: 'Strategy before code',
+    description: 'We define the problem and design the solution before writing a single line.',
   },
   {
-    icon: Layers,
-    title: 'Domain Expertise',
-    description: "Deep vertical knowledge in talent assessment, investment research, operations, and GTM. We've seen the patterns.",
+    icon: Bot,
+    title: 'Agentic systems, not chatbots',
+    description: "Autonomous, long-running agents that monitor, act, and learn. They don't wait for prompts—they achieve outcomes.",
   },
   {
-    icon: Shield,
-    title: 'Senior-Led Delivery',
-    description: 'Principal engagement from strategy through deployment. No junior staff bait-and-switch.',
+    icon: Plug,
+    title: 'Embedded in your workflow',
+    description: "Lives inside email, Slack, databases, CRMs. Not another window to check. Just work getting done.",
+  },
+  {
+    icon: Brain,
+    title: 'Domain expertise built in',
+    description: "Deep vertical knowledge in finance, operations, talent and sales. We've seen the patterns—so you don't start from scratch.",
   },
 ];
 
@@ -27,7 +32,7 @@ export function Pillars() {
           What sets us apart
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {pillars.map((pillar) => (
             <Card key={pillar.title}>
               <pillar.icon className="w-12 h-12 text-foreground opacity-90 mb-6" strokeWidth={1.5} />

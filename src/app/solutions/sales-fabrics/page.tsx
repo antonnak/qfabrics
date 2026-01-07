@@ -2,18 +2,18 @@ import { Metadata } from 'next';
 import { Button } from '@/components/ui/Button';
 
 export const metadata: Metadata = {
-  title: 'CustomerFabrics - GTM & Revenue',
+  title: 'SalesFabrics - GTM & Revenue',
   description: 'AI agents for lead enrichment, outreach automation, pipeline intelligence, and customer success. 3x pipeline coverage.',
 };
 
-export default function CustomerFabricsPage() {
+export default function SalesFabricsPage() {
   return (
     <main className="pt-24">
       {/* Hero */}
       <section className="py-24">
         <div className="max-w-3xl mx-auto px-6">
           <span className="text-foreground-subtle text-xs font-semibold uppercase tracking-widest">
-            CustomerFabrics
+            SalesFabrics
           </span>
           <h1 className="mt-4 text-4xl sm:text-5xl font-semibold text-foreground leading-tight">
             Revenue operations on autopilot
@@ -110,7 +110,7 @@ export default function CustomerFabricsPage() {
       <section className="py-24">
         <div className="max-w-2xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-semibold text-foreground">
-            See CustomerFabrics in action
+            See SalesFabrics in action
           </h2>
           <p className="mt-4 text-foreground-muted">
             We&apos;ll show you exactly how it works with your sales process.

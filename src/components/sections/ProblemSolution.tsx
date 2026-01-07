@@ -9,14 +9,14 @@ export function ProblemSolution() {
               The Problem
             </span>
             <h2 className="mt-4 text-2xl sm:text-3xl font-semibold text-foreground leading-tight">
-              Most AI projects die in the pilot phase.
+              Most AI projects fail the same way
             </h2>
             <div className="mt-6 space-y-4 text-foreground-muted leading-relaxed">
               <p>
-                They work in demos. Leadership gets excited. Then reality hits: integration nightmares, edge cases, maintenance burden.
+                They start with hype. They end as shelfware—custom GPTs and chatbots nobody uses after the first month. Pilots that never deploy. Tools that sit outside your workflow, waiting to be remembered.
               </p>
               <p>
-                The project quietly gets shelved. Meanwhile, your competitors are actually deploying.
+                The pattern is predictable: impressive demo, IT rollout, initial enthusiasm, then silence. Your team goes back to email and spreadsheets because the AI didn&apos;t actually fit how they work.
               </p>
             </div>
           </div>
@@ -27,14 +27,14 @@ export function ProblemSolution() {
               Our Approach
             </span>
             <h2 className="mt-4 text-2xl sm:text-3xl font-semibold text-foreground leading-tight">
-              Strategy meets engineering.
+              Strategy meets engineering
             </h2>
             <div className="mt-6 space-y-4 text-foreground-muted leading-relaxed">
               <p>
-                We combine McKinsey-trained strategy with hands-on engineering. We don&apos;t just tell you what to build—we build it, deploy it, and make sure it works.
+                We combine 100+ years of combined McKinsey experience with hands-on software engineering. We don&apos;t just tell you what to build—we build it, deploy it, and make sure it works.
               </p>
               <p>
-                Every engagement delivers production systems, not slide decks.
+                Every engagement delivers working systems, not slide decks. AI agents running in your environment, processing real data, delivering real outcomes.
               </p>
             </div>
           </div>

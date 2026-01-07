@@ -3,13 +3,6 @@ import { Users, TrendingUp, BarChart3, Target, ArrowRight } from 'lucide-react';
 
 const fabrics = [
   {
-    icon: Users,
-    name: 'TalentFabrics',
-    domain: 'Executive Intelligence',
-    description: 'AI agents for talent assessment, executive benchmarking, leadership analytics, and succession planning.',
-    href: '/solutions/talent-fabrics',
-  },
-  {
     icon: TrendingUp,
     name: 'InvestmentFabrics',
     domain: 'Investment Research',
@@ -24,11 +17,18 @@ const fabrics = [
     href: '/solutions/operations-fabrics',
   },
   {
+    icon: Users,
+    name: 'TalentFabrics',
+    domain: 'Executive Intelligence',
+    description: 'AI agents for talent assessment, executive benchmarking, leadership analytics, and succession planning.',
+    href: '/solutions/talent-fabrics',
+  },
+  {
     icon: Target,
-    name: 'CustomerFabrics',
+    name: 'SalesFabrics',
     domain: 'GTM & Revenue',
     description: 'AI agents for lead enrichment, outreach automation, pipeline intelligence, and customer success.',
-    href: '/solutions/customer-fabrics',
+    href: '/solutions/sales-fabrics',
   },
 ];
 

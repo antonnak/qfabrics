@@ -40,7 +40,7 @@ export default function TalentFabricsPage() {
               You&apos;re responsible for talent across a portfolio of companies. You know the CEO at PortCo #3 isn&apos;t working out—but by the time you have the data to prove it, you&apos;ve lost two quarters.
             </p>
             <p>
-              Traditional executive assessment is expensive ($50K+ per ghSMART engagement), slow (weeks to schedule), and reactive. You need proactive, continuous intelligence.
+              Traditional executive assessment is expensive, slow (weeks to schedule), and reactive. You need proactive, continuous intelligence.
             </p>
           </div>
         </div>
