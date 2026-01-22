@@ -21,11 +21,11 @@ Marketing website for QuantumFabrics (enterprise AI agent builder) built with Ne
 - `src/components/ui/` - Reusable primitives (Button, Card) using `class-variance-authority`
 - `src/components/sections/` - Homepage sections (Hero, Pillars, FabricsGrid, etc.)
 - `src/lib/utils.ts` - `cn()` utility for className composition (clsx + tailwind-merge)
-- `src/lib/animations.ts` - Framer Motion animation variants (fadeIn, staggerContainer, scaleIn)
+- `src/lib/animations.ts` - Framer Motion animation variants (fadeIn, staggerContainer, scaleIn, prismFloat, glowPulse)
 
 ### Tailwind CSS v4 Setup
 
-Custom design tokens are defined in `globals.css` using CSS variables and exposed to Tailwind via `@theme inline`:
+Custom design tokens are defined in `globals.css` using CSS variables and exposed to Tailwind via `@theme`:
 
 ```css
 /* Use these semantic color classes in Tailwind */
@@ -35,4 +35,17 @@ border-border, border-border-hover
 bg-accent-highlight
 ```
 
-Dark mode is the default and only theme.
+Dark mode is the default and only theme (pure black background #000000).
+
+### Contact Form
+
+The contact form (`/contact`) uses a server action at `src/app/api/contact/route.ts` that sends emails via Resend.
+
+### Design Principles (from specification.md)
+
+- Minimal, premium, technical aesthetic (similar to Vercel, Linear, Raycast)
+- Dark mode throughout with pure black background
+- Lots of whitespace, subtle animations only
+- Typography does the heavy lifting
+- Avoid buzzwords; prefer action verbs (build, ship, deploy)
+- Lead with outcomes in copy ("Reduce reporting time by 80%")
