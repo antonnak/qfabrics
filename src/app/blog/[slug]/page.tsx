@@ -111,12 +111,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </header>
 
           {post.image && (
-            <div className="relative w-full aspect-video mb-12 rounded-lg overflow-hidden bg-background-subtle">
+            <div className="relative w-full mb-12 rounded-lg overflow-hidden bg-background-subtle">
               <Image
                 src={post.image}
                 alt={post.title}
-                fill
-                className="object-cover"
+                width={1200}
+                height={1075}
+                className="w-full h-auto"
                 priority
               />
             </div>
