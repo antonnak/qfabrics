@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import remarkGfm from 'remark-gfm';
 import { getAllSlugs, getPostBySlug } from '@/lib/blog';
 
 interface BlogPostPageProps {
@@ -122,7 +123,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           )}
 
           <div className="prose prose-invert prose-lg max-w-none prose-headings:text-foreground prose-p:text-foreground-muted prose-a:text-foreground prose-a:underline hover:prose-a:text-foreground-muted prose-strong:text-foreground prose-code:text-foreground prose-code:bg-background-elevated prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-pre:bg-background-elevated prose-pre:border prose-pre:border-border prose-blockquote:border-l-border prose-blockquote:text-foreground-muted prose-li:text-foreground-muted prose-table:border-collapse prose-table:w-full prose-th:border prose-th:border-border prose-th:px-4 prose-th:py-2 prose-th:text-left prose-th:text-foreground prose-th:bg-background-elevated prose-td:border prose-td:border-border prose-td:px-4 prose-td:py-2 prose-td:text-foreground-muted">
-            <MDXRemote source={post.content} />
+            <MDXRemote
+              source={post.content}
+              options={{
+                mdxOptions: {
+                  remarkPlugins: [remarkGfm],
+                },
+              }}
+            />
           </div>
         </div>
       </article>
