@@ -1,10 +1,22 @@
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazily initialize Resend to avoid build failures when API key is not set
+let resend: Resend | null = null;
+
+function getResendClient(): Resend {
+  if (!resend) {
+    if (!process.env.RESEND_API_KEY) {
+      throw new Error('RESEND_API_KEY environment variable is not set');
+    }
+    resend = new Resend(process.env.RESEND_API_KEY);
+  }
+  return resend;
+}
 
 export async function POST(request: Request) {
   try {
+    const client = getResendClient();
     const body = await request.json();
     const { name, email, company, role, message } = body;
 
@@ -25,7 +37,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const { data, error } = await resend.emails.send({
+    const { data, error } = await client.emails.send({
       from: 'QuantumFabrics <contact@quantumfabrics.ai>',
       to: ['anton@quantumfabrics.ai'],
       replyTo: email,
