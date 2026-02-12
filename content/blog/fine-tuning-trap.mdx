@@ -1,0 +1,227 @@
+---
+title: "The Fine-Tuning Trap: Why Context Engineering Beats Custom Models Pre-PMF"
+description: "Fine-tuning is easier than ever. That's the problem. Here's why we use 100KB prompts instead."
+date: "2026-02-12"
+author: "Anton Nakaliuzhnyi"
+image: "/blog/fine-tuning-trap.png"
+tags: ["ai-agents", "fine-tuning", "prompt-engineering", "context-engineering", "enterprise-ai"]
+---
+
+# The Fine-Tuning Trap: Why Context Engineering Beats Custom Models Pre-PMF
+
+Fine-tuning is easier than ever. That's the problem.
+
+## The Temptation
+
+Every team building AI hits the same question: "Why not just train our own model?"
+
+The pitch is compelling:
+- Specialized behavior
+- Consistent outputs
+- Potentially lower inference costs
+- "We'll have our own model"
+
+And fine-tuning has never been easier. OpenAI, Anthropic, and Google all offer fine-tuning APIs. LoRA makes it cheap. The tools are mature.
+
+So why do we at QuantumFabrics rarely fine-tune?
+
+## The Trap
+
+**Model iteration limits product iteration.**
+
+Fine-tuning bakes behavior into weights. Weights are expensive to change. The typical cycle:
+
+1. Collect training data (days)
+2. Fine-tune model (hours to days)
+3. Evaluate results (days)
+4. Iterate (repeat from step 1)
+
+Total: weeks to months per iteration.
+
+Meanwhile, your product requirements change weekly. Your users discover edge cases. Your business pivots.
+
+Pre-PMF, you need to iterate fast. Fine-tuning locks you in.
+
+## The Alternative: Context Engineering
+
+Our entire AI strategy: **Don't change model weights. Change the context.**
+
+Here's how it works in production:
+
+```typescript
+export function buildLiraSystemPrompt(context: PromptContext): string {
+  // Dynamic context injection - every request gets customized prompt
+  let promptText = basePromptTemplate
+    .replace(/{candidateId}/g, context.candidateId || "{uuid}")
+    .replace(/{positionId}/g, context.positionId || "{uuid}")
+    .replace(/{currentChatId}/g, context.chatId);
+
+  // Email-specific behavior modification
+  if (context.requestSource === "email" && context.emailMetadata) {
+    promptText += `
+## Email Request Context
+- Email From: ${context.emailMetadata.fromName}
+- Email Subject: ${context.emailMetadata.subject}
+**Formatting**: Use professional tone, avoid markdown`;
+  }
+
+  return contextHeader + promptText;
+}
+```
+
+Our harness — system prompt, skills, and tools — is comprehensive. It handles:
+- Dynamic context injection (userId, timezone, email metadata)
+- Task-specific behavior modification
+- Policy enforcement
+- Output formatting rules
+
+All without training a single model.
+
+## Why This Wins
+
+### 1. Fast Iteration
+
+Prompt changes take seconds. Deploy and test immediately. Found an edge case? Fix it in 5 minutes.
+
+Fine-tuning: days to weeks per change.
+
+### 2. Multi-Tenant Scale
+
+Same base model serves 1M users with different contexts. Each request gets personalized prompts based on:
+- User role
+- Tenant settings
+- Request type (chat vs email)
+- Current task
+
+With fine-tuning, you'd need separate models for each variation.
+
+### 3. Provider Agnostic
+
+Our fallback chain:
+
+```typescript
+const fallbackModel1 = new ChatAnthropic({ model: "claude-sonnet-4-5" });
+const fallbackModel2 = new ChatOpenAI({ model: "gpt-5.2" });
+
+middleware: [
+  modelFallbackMiddleware(fallbackModel1, fallbackModel2),
+  modelRetryMiddleware({ maxRetries: 2 }),
+]
+```
+
+If Anthropic is down, we fall back to OpenAI. No retraining required.
+
+Fine-tuning locks you to one provider.
+
+### 4. Cost Optimized
+
+Use Sonnet for simple tasks, Opus only when needed. Dynamic routing based on task complexity.
+
+With fine-tuning, you commit to one model's pricing.
+
+## The Cost Objection (Solved)
+
+"But context engineering is expensive with long prompts!"
+
+Not anymore. Prompt caching changes the math:
+
+**Anthropic**:
+- Cached tokens are 10x cheaper
+- Up to 90% cost reduction
+- Up to 85% latency reduction
+
+**OpenAI**:
+- Automatic caching for prompts ≥1,024 tokens
+- No extra charge for cache writes
+- 24hr retention for GPT-5.1/4.1 series
+
+**Best practice**: Put static content (system prompts) at the top. Dynamic content at the bottom. Maximize cache hits.
+
+Our 100KB prompt? Most of it hits cache. The cost is negligible.
+
+## When Fine-Tuning Makes Sense
+
+Post-PMF, fine-tuning can make sense:
+
+**ROI Timeline**:
+- >10M queries/month: ROI in 3-6 months
+- 1-10M queries/month: ROI in 6-12 months
+- Smaller language models: Often profitable from day one
+
+**Valid Use Cases**:
+- Highly specialized output formats that never change
+- Strict latency requirements (smaller fine-tuned model faster than large base)
+- Compliance requirements needing model-level guarantees
+- Post-PMF with stable requirements and high volume
+
+**Invalid Use Cases**:
+- Early-stage projects
+- Evolving knowledge (use RAG instead)
+- Open-ended or multi-task applications
+- Limited resources
+
+The rule: "If your LLM has relevant facts but needs different style/tone/format, first try prompt engineering. If that doesn't work, THEN consider fine-tuning."
+
+## Platform Implementation
+
+### AWS: Bedrock + Prompt Management
+
+- Bedrock Prompt Management for versioned system prompts
+- Bedrock Guardrails for policy enforcement
+- Knowledge Bases for RAG
+- Multi-model support via Bedrock
+
+### GCP: Vertex AI + Context Caching
+
+- Vertex AI context caching (similar to Anthropic)
+- Grounding with Google Search for real-time knowledge
+- Prompt templates with variable injection
+- Model Garden for multi-provider
+
+### Open Source: LangChain + LangGraph
+
+What we use:
+- `buildSystemPrompt()` for dynamic context injection
+- `TOKEN_BUDGET` for smart context window management
+- `modelFallbackMiddleware` for provider resilience
+- Vector DB for RAG retrieval
+
+## The Hierarchy
+
+When to use each approach:
+
+1. **Prompt engineering** - Instant iteration (seconds)
+2. **RAG/retrieval** - Fresh knowledge, no retraining
+3. **Prompt caching** - Cost reduction for long contexts
+4. **Multi-provider fallback** - Resilience without lock-in
+5. **Fine-tuning** - Only after PMF, stable requirements, high volume
+
+## Key Takeaways
+
+- Fine-tuning is easier than ever. That doesn't mean you should do it.
+- Model iteration limits product iteration
+- Pre-PMF, optimize for iteration speed
+- Prompt caching makes context engineering cost-effective
+- Save fine-tuning for post-PMF, high-volume, narrow tasks
+- A 100KB prompt can do what you think requires training
+
+---
+
+*Sources:*
+- [Context Engineering vs Fine-Tuning](https://www.xugj520.cn/en/archives/context-engineering-vs-fine-tuning.html)
+- [Anthropic Prompt Caching](https://www.anthropic.com/news/prompt-caching)
+- [When Fine-Tuning Is Worth It](https://cbtw.tech/insights/when-to-fine-tune-llms)
+- [Why Not Fine-Tune in 2025](https://eclipsesource.com/blogs/2025/05/08/why-not-fine-tune-llms/)
+
+---
+
+## Sources
+
+1. [Context Engineering vs Fine-Tuning](https://www.xugj520.cn/en/archives/context-engineering-vs-fine-tuning.html) - When to use each approach
+2. [Anthropic Prompt Caching](https://www.anthropic.com/news/prompt-caching) - 90% cost reduction
+3. [When Fine-Tuning Is Worth It](https://cbtw.tech/insights/when-to-fine-tune-llms) - ROI analysis
+4. [Why Not Fine-Tune](https://eclipsesource.com/blogs/2025/05/08/why-not-fine-tune-llms/) - Pre-PMF considerations
+
+---
+
+
